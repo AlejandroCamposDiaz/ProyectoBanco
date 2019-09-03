@@ -1,0 +1,58 @@
+package com.banco.msgestorpago.process;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.banco.msgestorpago.clientservices.AbonoInterface;
+import com.banco.msgestorpago.clientservices.CargoInterface;
+import com.banco.msgestorpago.clientservices.Cuenta;
+import com.banco.msgestorpago.clientservices.Recarga;
+import com.banco.msgestorpago.clientservices.RecargaInterface;
+import com.banco.msgestorpago.clientservices.Transaccion;
+
+@Service
+public class ProcesarCargoAbono implements ProcesarCargoAbonoInterface {
+	
+	@Autowired
+	private AbonoInterface abono;
+	
+	@Autowired
+	private CargoInterface cargo;
+	
+	@Autowired
+	private RecargaInterface recarga;
+
+	@Override
+	public Transaccion procesarCargoAbono(Cuenta abonar, Cuenta cargar,String dni, String celular) {
+		// TODO Auto-generated method stub
+		Transaccion salida = new Transaccion();
+		salida.setCodigo("0000");
+		salida.setDescripcion("Procesao Conforme");
+		Transaccion txcargo = cargo.cargar(cargar);
+		
+		if(txcargo.getCodigo().equals("0000")) {
+			Transaccion txabono = abono.abonar(abonar);
+			
+			if(txabono.getCodigo().equals("0000")){					
+				Recarga obj = new Recarga();
+				obj.setDni(dni);
+				System.out.print("MONTO A ENVIAR="+cargar.getMonto());
+				obj.setMonto(cargar.getMonto());
+				obj.setNumero(celular);				
+				recarga.procesarRecarga(obj);
+				
+			}else {
+				salida.setCodigo("4444");
+				salida.setDescripcion("Error procesar Abono");
+			}			
+		}
+		else {
+			salida.setCodigo("5555");
+			salida.setDescripcion("Error procesar Cargo");
+		}
+		
+		
+		return salida;
+	}
+
+}

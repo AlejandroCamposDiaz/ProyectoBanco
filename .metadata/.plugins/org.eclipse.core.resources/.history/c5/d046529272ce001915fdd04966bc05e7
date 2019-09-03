@@ -1,0 +1,14 @@
+package com.banco.msgestorpago.process;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.banco.msgestorpago.clientservices.Cuenta;
+import com.banco.msgestorpago.clientservices.Transaccion;
+
+public interface ProcesarCargoAbonoInterface {
+	
+	public Transaccion procesarCargoAbono(Cuenta abonar, Cuenta cargar, String dni, String celular);
+	
+	
+
+}

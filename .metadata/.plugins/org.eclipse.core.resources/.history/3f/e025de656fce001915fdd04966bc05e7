@@ -1,0 +1,12 @@
+spring.application.name=ms-abono
+server.port=8081
+server.servlet.context-path=/msabono
+eureka.client.service-url.defaultzone=http://localhost:8761/eureka
+
+## PROPERTIES CARGO
+codigo.respuesta.exito=0000
+mensaje.respuesta.exito=Proceso de Abono realizado satisfactoriamente
+codigo.identificador.exito=1
+
+codigo.error.abono=1111
+mensaje.error.abono=Proceso de Abono realizado sin éxito

@@ -1,0 +1,25 @@
+spring.application.name=ms-pago
+server.port=8083
+server.servlet.context-path=/mspago
+eureka.client.service-url.defaultzone=http://localhost:8761/eureka
+
+
+## PROPERTIES RECARGA
+codigo.respuesta.exito=0000
+mensaje.respuesta.exito=Proceso realizado satisfactoriamente
+codigo.identificador.exito=1
+
+codigo.exito.cargo=0000
+mensaje.exito.cargo=Proceso de CARGO realizado correctamente
+codigo.error.cargo=1111
+mensaje.error.cargo=Proceso de CARGO realizado sin exito
+
+codigo.exito.abono=0000
+mensaje.exito.abono=Proceso de ABONO realizado correctamente
+codigo.error.abono=2222
+mensaje.error.abono=Proceso de ABONO realizado sin exito
+
+codigo.exito.recarga=0000
+mensaje.exito.recarga=Proceso de RECARGA realizado correctamente
+codigo.error.recarga=3333
+mensaje.error.recarga=Proceso de RECARGA realizado sin exito

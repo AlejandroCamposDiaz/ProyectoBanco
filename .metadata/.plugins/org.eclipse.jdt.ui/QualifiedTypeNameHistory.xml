@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.banco.msgestorpago.clientservices.Recarga"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="com.banco.msrecarga.dao.Conexion"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.banco.msrecarga.dao.ProcesarRecargaDaoInterface"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="com.banco.msrecarga.negocio.Recarga"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.banco.msbuspago.clientservice.AppException"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="brave.sampler.Sampler"/>
+<fullyQualifiedTypeName name="com.banco.mscargo.negocio.Transaccion"/>
+<fullyQualifiedTypeName name="com.banco.msabono.negocio.Transaccion"/>
+<fullyQualifiedTypeName name="com.banco.msrecarga.negocio.Transaccion"/>
+<fullyQualifiedTypeName name="com.banco.mscargo.util.PropertiesExternal"/>
+<fullyQualifiedTypeName name="com.banco.msabono.util.PropertiesExternal"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.banco.msrecarga.util.PropertiesExternal"/>
+</qualifiedTypeNameHistroy>

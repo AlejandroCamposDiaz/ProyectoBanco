@@ -1,0 +1,57 @@
+package com.banco.mscargo.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.springframework.stereotype.Repository;
+
+import com.banco.mscargo.negocio.Transaccion;
+
+
+@Repository
+public class ProcesarCargoDao implements ProcesarCargoDaoInterface {
+
+	@Override
+	public Transaccion cargo(String nrocuenta, Double monto) throws Exception {
+		Transaccion tx = new Transaccion();
+		PreparedStatement pstmt = null;
+		Conexion con = null;
+		int codigoRespuesta= 1;
+		String SQL = "update esq_banco.TBL_CUENTA set saldo = (select saldo from esq_banco.TBL_CUENTA tc where tc.NROCUENTA = ?)-?  where NROCUENTA = ?";
+		try {
+			con = new Conexion();
+			con.getConnection().setAutoCommit(false);
+			pstmt = con.getConnection().prepareStatement(SQL);
+			pstmt.setString(1, nrocuenta);
+			pstmt.setDouble(2, monto);
+			pstmt.setString(3, nrocuenta);
+			//pstmt.executeUpdate();
+			
+			int codidoExito= pstmt.executeUpdate();
+			
+			//System.out.println("CODIGO_EJECUCION= "+pstmt.executeUpdate());
+			if(codidoExito==codigoRespuesta) {
+				tx.setCodigo("0000");
+				tx.setDescripcion("Proceso de Cargo realizado satisfactoriamente");
+				
+				con.getConnection().commit();
+			}
+			
+
+			
+			
+		} catch (SQLException sqle) {
+			throw new Exception(sqle.getMessage());
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			try {
+				con.closeResources(con.getConnection(), null, null, null, pstmt);
+			} catch (Exception e) {
+				throw new Exception(e.getMessage());
+			}
+		}
+		return tx;
+	}
+
+}

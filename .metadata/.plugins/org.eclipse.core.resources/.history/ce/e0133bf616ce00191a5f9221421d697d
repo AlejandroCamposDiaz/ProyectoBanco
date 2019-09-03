@@ -1,0 +1,7 @@
+spring.application.name=ms-cargo
+server.port=8082
+server.servlet.context-path=/mscargo
+eureka.client.service-url.defaultzone=http://localhost:8761/eureka
+
+codigo.respuesta.exito=0
+mensaje.respuesta.exito=Transacci\u00f3n Exitosa

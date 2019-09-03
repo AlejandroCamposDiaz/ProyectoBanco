@@ -1,0 +1,65 @@
+package com.banco.mscargo.util;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@PropertySource("classpath:application.properties")
+public class PropertiesExternal{
+
+    @Value("${codigo.respuesta.exito}")
+    public String pCODIGO_RESPUESTA_EXITO;
+    
+    @Value("${mensaje.respuesta.exito}")
+    public String pMENSAJE_RESPUESTA_EXITO;
+
+    @Value("${codigo.error.tecnico}")
+    public String pCODIGO_ERROR_TECNICO;
+    
+    @Value("${mensaje.error.tecnico}")
+    public String pMENSAJE_ERROR_TECNICO;
+
+    @Value("${crear.usuario.codigo.error}")
+    public String pCREAR_USUARIO_CODIGO_ERROR;
+    
+    @Value("${crear.usuario.mensaje.error}")
+    public String pCREAR_USUARIO_MENSAJE_ERROR;
+
+    @Value("${obtener.usuario.codigo.idf1}")
+    public String pOBTENER_USUARIO_CODIGO_IDF1;
+    
+    @Value("${obtener.usuario.mensaje.idf1}")
+    public String pOBTENER_USUARIO_MENSAJE_IDF1;
+    
+    @Value("${obtener.usuarios.codigo.idf1}")
+    public String pOBTENER_USUARIOS_CODIGO_IDF1;
+    
+    @Value("${obtener.usuarios.mensaje.idf1}")
+    public String pOBTENER_USUARIOS_MENSAJE_IDF1;
+
+    @Value("${actualizar.usuario.codigo.idf1}")
+    public String pACTUALIZAR_USUARIO_CODIGO_IDF1;
+    
+    @Value("${actualizar.usuario.mensaje.idf1}")
+    public String pACTUALIZAR_USUARIO_MENSAJE_IDF1;
+
+    @Value("${actualizar.usuario.codigo.idf2}")
+    public String pACTUALIZAR_USUARIO_CODIGO_IDF2;
+    
+    @Value("${actualizar.usuario.mensaje.idf2}")
+    public String pACTUALIZAR_USUARIO_MENSAJE_IDF2;
+    
+    @Value("${loguear.usuario.codigo.idf1}")
+    public String pLOGIN_USUARIO_CODIGO_IDF1;
+    
+    @Value("${loguear.usuario.mensaje.idf1}")
+    public String pLOGIN_USUARIO_MENSAJE_IDF1;
+
+    @Value("${loguear.usuario.por.ruc.codigo.idf1}")
+    public String pLOGIN_USUARIO_POR_RUC_CODIGO_IDF1;
+    
+    @Value("${loguear.usuario.por.ruc.mensaje.idf1}")
+    public String pLOGIN_USUARIO_POR_RUC_MENSAJE_IDF1;
+
+}

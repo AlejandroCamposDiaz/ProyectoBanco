@@ -1,0 +1,53 @@
+package com.banco.msrecarga.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.banco.msrecarga.negocio.Recarga;
+import com.banco.msrecarga.negocio.Transaccion;
+
+@RestController
+public class RecargaDao implements RecargaDaoInterface {
+
+	@Override
+	public Transaccion procesarRecarga(Recarga recarga) throws Exception {
+		Transaccion tx = new Transaccion();
+		PreparedStatement pstmt = null;
+		Conexion con = null;
+		int codigoExito = ;
+		String SQL = "update esq_banco.TBL_PRODUCTO set saldo = (select saldo from esq_banco.TBL_PRODUCTO tp where tp.NRO = ?)+?  where NRO = ?";
+		try {
+			con = new Conexion();
+			con.getConnection().setAutoCommit(false);
+			pstmt = con.getConnection().prepareStatement(SQL);
+			pstmt.setString(1, recarga.getNumero());
+			pstmt.setDouble(2, recarga.getMonto());
+			pstmt.setString(3, recarga.getNumero());
+			int codigoRespuesta = pstmt.executeUpdate();
+
+			if (codigoRespuesta == codigoExito) {
+				tx.setCodigo("0000");
+				tx.setDescripcion("Proceso de Recarga realizado satisfactoriamente");
+				con.getConnection().commit();
+			} else {
+				tx.setCodigo("3333");
+				tx.setDescripcion("Proceso de Recarga realizado sin éxito");
+			}
+
+		} catch (SQLException sqle) {
+			throw new Exception(sqle.getMessage());
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			try {
+				con.closeResources(con.getConnection(), null, null, null, pstmt);
+			} catch (Exception e) {
+				throw new Exception(e.getMessage());
+			}
+		}
+		return tx;
+	}
+
+}

@@ -1,0 +1,4 @@
+spring.application.name=ms-pago
+server.port=8083
+server.servlet.context-path=/mspago
+eureka.client.service-url.defaultzone=http://localhost:8761/eureka

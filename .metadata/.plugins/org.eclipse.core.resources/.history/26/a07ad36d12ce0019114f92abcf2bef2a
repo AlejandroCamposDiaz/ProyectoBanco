@@ -1,0 +1,15 @@
+package com.banco.msrecarga;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+public class MsRecargaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MsRecargaApplication.class, args);
+	}
+
+}

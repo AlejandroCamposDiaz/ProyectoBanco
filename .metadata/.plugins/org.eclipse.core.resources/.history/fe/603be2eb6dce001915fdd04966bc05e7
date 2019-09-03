@@ -1,0 +1,4 @@
+spring.application.name=ms-abono
+server.port=8081
+server.servlet.context-path=/msabono
+eureka.client.service-url.defaultzone=http://localhost:8761/eureka

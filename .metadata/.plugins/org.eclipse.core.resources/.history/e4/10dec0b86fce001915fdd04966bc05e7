@@ -1,0 +1,4 @@
+spring.application.name=ms-recarga
+server.port=8085
+server.servlet.context-path=/msrecarga
+eureka.client.service-url.defaultzone=http://localhost:8761/eureka
